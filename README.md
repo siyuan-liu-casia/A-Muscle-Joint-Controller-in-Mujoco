@@ -8,7 +8,10 @@
 
 Train a 1-DOF 2-muscle controller to reach random target angles.
 
-<img src="https://picgo-liusiyuan.oss-cn-beijing.aliyuncs.com/picgo-lsy/202512031135279.png" width="20%" alt="">
+<video controls  width="300">
+  <source src="test_video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ---
 
@@ -49,12 +52,17 @@ python test.python
 project/
 ├── assets/  
 │   └── arm12.xml                                        # MuJoCo model XML files
-├── output/PPO-Arm12-Time-2025-12-02-17-17-seed-2025     # Training outputs
-│   ├── models/                                          # Saved model checkpoints
-│   └── logs/PPO_1                                       # TensorBoard logs
-├── test/10000000                                         # Test results
+├── output/
+│   ├── PPO-Arm12-Time-2025-12-03-11-42-seed-2025       # Training outputs alpha = 0
+│   └── PPO-Arm12-Time-2025-12-03-12-54-seed-2025       # Training outputs alpha = 0.5
+│       └── models/                                      # Saved model checkpoints
+│       └── logs/                                        # TensorBoard logs
+├── test/
+│   ├── alpha_0_10000000                                 # Testing results alpha = 0
+│   └── alpha_0.5_10000000                               # Testing results alpha = 0.5
 ├── arm12.py                                             # Custom ARM12 environment
 ├── train.py                                             # Training script
 ├── test.py                                              # Testing script
+├── video.py                                             # Continuous Video generation
 └── utils.py                                             # Utility functions
 ```
