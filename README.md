@@ -64,5 +64,6 @@ project/
 ├── train.py                                             # Training script
 ├── test.py                                              # Testing script
 ├── video.py                                             # Continuous Video generation
-└── utils.py                                             # Utility functions
+├── utils.py                                             # Utility functions
+└── test_video.mp4                                       # Video
 ```
