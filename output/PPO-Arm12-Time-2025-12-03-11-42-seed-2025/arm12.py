@@ -22,7 +22,8 @@ def save_video(frames, filename):
         outputdict={"-pix_fmt": "yuv420p"},
         inputdict={"-r": str(FRAMERATE)},
     ) 
- 
+
+# class Arm12:
 class Arm12(gym.Env): 
     metadata = {"render.modes": ["human", "rgb_array"], "video.frames_per_second": FRAMERATE}
     def __init__(self, render_mode=False, max_steps=500):
@@ -92,10 +93,7 @@ class Arm12(gym.Env):
     
     def reward(self):
         qpos = self.mj_data.qpos.copy()
-        qvel = self.mj_data.qvel.copy()
         qpos_err = self.target - qpos
-        if np.abs(qpos_err) < 0.1:
-            return np.exp(-10 * np.linalg.norm(qpos_err)) - np.linalg.norm(qvel)
         return np.exp(-10 * np.linalg.norm(qpos_err))
 
     def step(self, action):
@@ -113,9 +111,9 @@ class Arm12(gym.Env):
         reward = self.reward()
         info = {}
         info["qpos_err"] = np.linalg.norm(self.target-self.mj_data.qpos.copy())
-        info["qvel"] = np.linalg.norm(self.mj_data.qvel.copy())
         return state, reward, done, False, info 
     
+
     def render(self):
         if self.render_mode:
             if not hasattr(self, "viewer"):

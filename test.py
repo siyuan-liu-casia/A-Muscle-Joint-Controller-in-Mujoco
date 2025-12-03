@@ -1,7 +1,7 @@
 import os
 os.environ["MUJOCO_GL"] = "egl"
 
-import gym
+import gymnasium as gym 
 import mujoco
 from mujoco import viewer
 from stable_baselines3 import PPO
@@ -18,7 +18,7 @@ from arm12 import Arm12, save_video
 
 env = Arm12(render_mode=False)
 state = env.reset()
-model_dir = r'output/PPO-Arm12-Time-2025-12-02-20-29-seed-2025/models/rl_model_10000000_steps.zip'
+model_dir = r'output/PPO-Arm12-Time-2025-12-03-11-42-seed-2025/models/rl_model_4000000_steps.zip'
 pi = PPO.load(model_dir)
 
 step_number = model_dir.split('_')[-2]
@@ -26,13 +26,13 @@ test_dir = os.path.join('test', step_number)
 os.makedirs(test_dir, exist_ok=True)
 
 for t in range(10):
-    state = env.reset() 
+    state, _ = env.reset() 
     target = env.target
     env.frames = []  
 
     for i in range(500):
         action = pi.predict(state)[0]
-        state, reward, done, _ = env.step(action)  
+        state, reward, done, _, info = env.step(action)  
         qpos = env.mj_data.qpos.copy()
         env.render()
 

@@ -6,7 +6,8 @@ import os
 import skvideo.io
 
 ARM_INFO_KEYS = {
-    "qpos_err" 
+    "qpos_err",
+    "qvel",
 }
 
 ENV_INFO={

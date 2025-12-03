@@ -17,7 +17,7 @@
   <option timestep="0.005" iterations="50" solver="Newton" tolerance="1e-10" gravity="9.81 0 0"/>
 
   <visual>
-    <!-- <rgba haze=".3 .3 .3 1"/> -->
+    <global offwidth="1920" offheight="1080"/> 
     <rgba haze=".1 .1 .1 1"/>
   </visual>
 

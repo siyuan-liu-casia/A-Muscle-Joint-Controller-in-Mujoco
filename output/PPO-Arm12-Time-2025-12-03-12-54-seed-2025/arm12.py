@@ -95,7 +95,7 @@ class Arm12(gym.Env):
         qvel = self.mj_data.qvel.copy()
         qpos_err = self.target - qpos
         if np.abs(qpos_err) < 0.1:
-            return np.exp(-10 * np.linalg.norm(qpos_err)) - np.linalg.norm(qvel)
+            return np.exp(-10 * np.linalg.norm(qpos_err)) - 0.5 * np.linalg.norm(qvel)
         return np.exp(-10 * np.linalg.norm(qpos_err))
 
     def step(self, action):
@@ -116,6 +116,7 @@ class Arm12(gym.Env):
         info["qvel"] = np.linalg.norm(self.mj_data.qvel.copy())
         return state, reward, done, False, info 
     
+
     def render(self):
         if self.render_mode:
             if not hasattr(self, "viewer"):

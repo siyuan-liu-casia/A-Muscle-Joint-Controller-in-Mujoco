@@ -26,10 +26,12 @@ nowtime = datetime.datetime.now().strftime('%Y-%m-%d-%H-%M')
 
 save_dir = os.path.join(current_dir, f"output/PPO-Arm12-Time-{nowtime}-seed-{seed}")
 model_dir = os.path.join(save_dir, "models")
-loggir_dir = os.path.join(save_dir, "logs") 
+loggir_dir = os.path.join(save_dir, "logs")
+train_test_dir = os.path.join(save_dir, "test")
 
 os.makedirs(model_dir, exist_ok=True)
-os.makedirs(loggir_dir, exist_ok=True) 
+os.makedirs(loggir_dir, exist_ok=True)
+os.makedirs(train_test_dir, exist_ok=True)
 
 shutil.copyfile(os.path.join(current_dir, current_file), os.path.join(save_dir, current_file))
 shutil.copyfile(os.path.join(current_dir, 'arm12.py'), os.path.join(save_dir, 'arm12.py'))

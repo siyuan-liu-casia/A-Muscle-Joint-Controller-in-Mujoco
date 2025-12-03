@@ -2,7 +2,7 @@ import mujoco
 import time
 from mujoco import viewer
 import os
-import gym
+import gymnasium as gym 
 import numpy as np
 import skvideo.io
 from arm12 import Arm12, save_video

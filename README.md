@@ -2,7 +2,13 @@
 
 ---
 
-🌐 [Project Page](https://oamics.github.io/mosim_page/) 
+🌐 [Project Page](https://github.com/siyuan-liu-casia/A-Muscle-Joint-Controller-in-Mujoco) 
+
+---
+
+Train a 1-DOF 2-muscle controller to reach random target angles.
+
+<img src="https://picgo-liusiyuan.oss-cn-beijing.aliyuncs.com/picgo-lsy/202512031135279.png" width="20%" alt="">
 
 ---
 
